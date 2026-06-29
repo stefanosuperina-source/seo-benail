@@ -1,6 +1,6 @@
 """
-Central configuration for the SEO pipeline (Italian market)
-This file is an updated version with PrestaShop integration settings added.
+Central configuration for the SEO pipeline (Benail.it - Professional Nail Products)
+Updated with SEO audit recommendations for benail.it ecommerce store.
 Do NOT commit sensitive keys. Use environment variables or GitHub Secrets.
 """
 
@@ -55,16 +55,17 @@ def _optional(name: str, default: str = "") -> str:
 
 class SEOConfig:
     """
-    Primary configuration for the italian SEO pipeline.
+    Primary configuration for the Benail.it SEO pipeline.
+    Focus: Professional nail products e-commerce optimization
     """
 
     # ============================
     # BRAND & POSITIONING
     # ============================
     
-    BRAND_NAME = "Stefano Da Google"
-    WEBSITE_URL = _require("WP_URL").rstrip("/")  # e.g., https://stefanodagogle.com
-    WEBSITE_DOMAIN = _optional("WP_DOMAIN", "stefanodagogle.com")
+    BRAND_NAME = "Benail"
+    WEBSITE_URL = _optional("PRESTA_URL", "https://benail.it").rstrip("/")
+    WEBSITE_DOMAIN = _optional("WEBSITE_DOMAIN", "benail.it")
     
     # Localization
     LANGUAGE = Language(_optional("LANGUAGE_CODE", "it"))
@@ -75,90 +76,91 @@ class SEOConfig:
 
     TARGET_MARKET = MarketRegion(_optional("TARGET_MARKET", "IT"))
 
-    # ========================================
-    # CORE POSITIONING: Specialista Google Ads
-    # ========================================
-    SPECIALIST_TITLE = "Specialista Google Ads Italia"
-    SPECIALIST_TAGLINE = "Gestione campagne Google Ads professionali per PMI italiane"
+    # =========================================
+    # CORE POSITIONING: Professional Nail Products
+    # =========================================
+    SPECIALIST_TITLE = "Prodotti Professionali per Onicotecniche"
+    SPECIALIST_TAGLINE = "Smalti semipermanenti, acrygel, gel, lampade e attrezzature HEMA Free con consegna 24h"
 
     STORE_NICHE = _optional(
         "STORE_NICHE",
-        "Specialista Google Ads per il mercato italiano - Gestione campagne PPC, "
-        "advertising digitale, ottimizzazione budget pubblicitari, strategie pay-per-click "
-        "per aziende italiane che vogliono dominare Google Ads"
+        "E-commerce specializzato in prodotti professionali per onicotecniche - smalti semipermanenti, "
+        "acrygel, gel trifasico, lampade UV/LED, attrezzature, nail art e ricostruzioni unghie. "
+        "Spedizione rapida in 24h in tutta Italia. Prezzi per professionisti e rivenditori."
     )
 
     BUSINESS_DESCRIPTION = (
-        "Stefano Da Google è uno specialista certificato di Google Ads e gestione campagne "
-        "pay-per-click. Offriamo strategie di advertising digitale avanzate, ottimizzazione "
-        "campagne Google Ads, gestione budget PPC, keyword research per Google Ads, e "
-        "strategie di conversione per PMI e business italiani che vogliono massimizzare "
-        "il ROI su Google Ads."
+        "Benail è un e-commerce specializzato in prodotti professionali per onicotecniche e nail center. "
+        "Offriamo smalti semipermanenti HEMA Free, gel trifasico, acrygel, lampade professionali UV/LED, "
+        "attrezzature per nail art e ricostruzioni unghie. Consegna in 24h in tutta Italia, prezzi B2B "
+        "per rivenditori e nail center professionali, marchi selezionati e certificati."
     )
 
+    # ============================
+    # PRIMARY KEYWORDS (from audit)
+    # ============================
     PRIMARY_KEYWORDS = [
-        "specialista google ads italia",
-        "gestione campagne google ads",
-        "google ads specialist roma",
-        "campagne ppc italia",
-        "advertising google ads",
-        "ottimizzazione google ads",
-        "google ads expert italy",
-        "gestione google ads roma",
-        "strategia google ads",
-        "consulente google ads milano",
-        "gestione budget google ads",
-        "campaign manager google ads",
+        "prodotti professionali onicotecniche",
+        "smalti semipermanenti professionale",
+        "gel acrygel onicotecniche",
+        "lampade uv led professionale",
+        "attrezzature nail art",
+        "prodotti onicotecniche online",
+        "smalto semipermanente HEMA Free",
+        "acquisto prodotti nail ingrosso",
+        "fornitore smalti semipermanenti professionali",
+        "prodotti ricostruzione unghie",
     ]
 
     SECONDARY_KEYWORDS = [
-        "aumento conversioni google ads",
-        "roi google ads",
-        "costo per clic ottimizzato",
-        "quality score google ads",
-        "keyword research google ads",
-        "remarketing google ads",
-        "google shopping ads",
-        "display ads optimization",
-        "search ads management",
-        "performance max campaigns",
+        "smalti gel professione",
+        "costruttore trifasico",
+        "gel monofasico",
+        "dual form nail",
+        "lampada led onicotecnica",
+        "kit ricostruzione unghie",
+        "attrezzature professionali unghie",
+        "nail center fornitori",
+        "prezzi all'ingrosso onicotecniche",
+        "marchi nail professionali",
     ]
 
     LONGTAIL_KEYWORDS = [
-        "come gestire campagne google ads in italia",
-        "migliorare roi campagne ppc",
-        "ridurre costo per click google ads",
-        "gestione google ads per e-commerce",
-        "strategia google ads piccole aziende",
-        "google ads b2b italia",
-        "campagne google ads high-ticket",
-        "ottimizzazione quality score google ads",
+        "come fare ricostruzione unghie con gel trifasico",
+        "differenza tra acrygel e gel acrilico",
+        "guida scelta lampada uv led professionale",
+        "come applicare smalto semipermanente senza difetti",
+        "prodotti HEMA Free cosa significano",
+        "miglior smalto semipermanente professionale",
+        "prezzo smalti semipermanenti ingrosso",
+        "fornitori prodotti nail professionali italia",
+        "attrezzature onicotecniche complete",
     ]
 
     CORE_SERVICES = [
-        "Gestione Campagne Google Ads",
-        "Strategia PPC Personalizzata",
-        "Ottimizzazione ROI Advertising",
-        "Keyword Research Google Ads",
-        "Gestione Budget Pubblicitario",
-        "A/B Testing Campagne",
-        "Conversione Landing Pages",
-        "Remarketing Strategico",
-        "Google Shopping Setup",
-        "Performance Optimization",
+        "Catalogo Prodotti Professionali Nail",
+        "Smalti Semipermanenti HEMA Free",
+        "Gel e Acrygel Professionali",
+        "Lampade UV/LED",
+        "Attrezzature Nail Art",
+        "Kit Ricostruzione Unghie",
+        "Marchi Selezionati Certificati",
+        "Consegna Rapida 24h",
+        "Prezzi B2B Rivenditori",
+        "Supporto Professionisti",
     ]
 
     EXPERTISE_AREAS = [
-        "Google Search Ads",
-        "Google Display Network (GDN)",
-        "Google Shopping Campaigns",
-        "Performance Max Campaigns",
-        "YouTube Advertising",
-        "Remarketing & Retargeting",
-        "Lead Generation PPC",
-        "E-commerce Google Ads",
-        "B2B Campaign Management",
-        "International PPC Strategies",
+        "Prodotti Semipermanenti",
+        "Gel Trifasico e Monofasico",
+        "Acrygel",
+        "Apparecchiature UV/LED",
+        "Nail Art Professionale",
+        "Ricostruzione Unghie",
+        "Prodotti HEMA Free",
+        "Marchi Premium Internazionali",
+        "B2B per Nail Center",
+        "Distributore Professionisti",
     ]
 
     # ============================
@@ -174,25 +176,17 @@ class SEOConfig:
     TEMPERATURE_EDITOR = float(_optional("TEMP_EDITOR", "0.3"))
 
     # =============================
-    # WORDPRESS / WOOCOMMERCE
+    # PRESTASHOP E-COMMERCE
     # =============================
-    WP_URL = WEBSITE_URL
-    WP_USERNAME = _require("WP_USERNAME")  # Admin WordPress username
-    WP_APP_PASSWORD = _require("WP_APP_PASSWORD")  # Application Password (NOT login password)
+    PRESTA_URL = _optional("PRESTA_URL", "https://benail.it").rstrip("/")
+    PRESTA_WS_KEY = _require("PRESTA_WS_KEY")  # PrestaShop Webservice Key
+    PRESTA_DEFAULT_LANG_ID = int(_optional("PRESTA_LANG_ID", "1"))
+    PRESTA_SHOP_ID = int(_optional("PRESTA_SHOP_ID", "1"))
+    PRESTA_CURRENCY = _optional("PRESTA_CURRENCY", "EUR")
+    PRESTA_DRY_RUN = bool(_optional("PRESTA_DRY_RUN", "true").lower() == "true")
 
-    PUBLISH_STATUS = PublishStatus(_optional("PUBLISH_STATUS", "draft"))
-    PUBLISH_STATUS_VALUE = PUBLISH_STATUS.value
-
-    DEFAULT_POST_CATEGORY = _optional("DEFAULT_CATEGORY", "Google Ads")
-
-    DEFAULT_POST_TAGS = [
-        "Google Ads",
-        "PPC",
-        "Advertising",
-        "Digital Marketing",
-        "Campagne Ads",
-        "Google Ads Italia",
-    ]
+    # Convenience flag
+    PRESTA_ENABLED = bool(PRESTA_URL and PRESTA_WS_KEY)
 
     # ==========================
     # CONTENUTO & GENERAZIONE ARTICOLI
@@ -206,15 +200,15 @@ class SEOConfig:
 
     CONTENT_TONE = _optional(
         "CONTENT_TONE",
-        "autorevole esperto, pratico, focalizzato su risultati misurabili e ROI, "
-        "conversazione diretta con imprenditori e marketer italiani che vogliono "
-        "massimizzare il budget pubblicitario su Google Ads"
+        "autorevole esperto, pratico, tecnico ma accessibile, focalizzato su qualità e professionalità, "
+        "conversazione diretta con onicotecniche, nail center e professionisti che vogliono i migliori "
+        "prodotti per nail art e ricostruzioni unghie"
     )
 
     DEFAULT_CTA = _optional(
         "DEFAULT_CTA",
-        "Contatta Stefano Da Google oggi per una consulenza strategica gratuita su Google Ads. "
-        "Scopri come ottimizzare le tue campagne PPC e aumentare il ROI del tuo advertising."
+        "Scopri il catalogo completo Benail di prodotti professionali per onicotecniche. "
+        "Consegna in 24h in tutta Italia. Prezzi per rivenditori e nail center. Contattaci per diventare partner."
     )
 
     USE_H2_STRUCTURE = True
@@ -223,7 +217,7 @@ class SEOConfig:
     # =====================
     # RICERCA & KEYWORD SEO
     # =====================
-    KEYWORD_RESEARCH_SOURCE = _optional("KEYWORD_RESEARCH_SOURCE", "google_ads_market_analysis")
+    KEYWORD_RESEARCH_SOURCE = _optional("KEYWORD_RESEARCH_SOURCE", "nail_industry_analysis")
     PREFER_LONGTAIL_KEYWORDS = True
     LONGTAIL_MIN_WORDS = 3
 
@@ -235,13 +229,13 @@ class SEOConfig:
     INCLUDE_CITY_TARGETING = True
 
     INDUSTRY_TARGETS = [
-        "e-commerce",
-        "agenzie immobiliari",
-        "studi professionali",
+        "nail center professionali",
+        "onicotecniche",
+        "centri estetici",
         "saloni bellezza",
-        "ristoranti",
-        "consulenza aziendale",
-        "software b2b",
+        "studi professionali bellezza",
+        "scuole onicotecnica",
+        "istituti professionali",
     ]
 
     # ==============================
@@ -253,19 +247,19 @@ class SEOConfig:
     AGCM_COMPLIANCE_MODE = True
 
     INCLUDE_PRIVACY_NOTICE = True
-    PRIVACY_POLICY_URL = _optional("PRIVACY_URL", f"{WEBSITE_URL}/privacy")
+    PRIVACY_POLICY_URL = _optional("PRIVACY_URL", f"{WEBSITE_URL}/privacy-policy")
 
     INCLUDE_COOKIE_NOTICE = True
 
     DISCLAIMER_CLAIMS = (
-        "I risultati delle campagne Google Ads variano a seconda del mercato, della concorrenza, "
-        "del budget e dell'implementazione strategica. Non garantiamo risultati specifici o posizionamenti, "
-        "ma offriamo strategie comprovate per massimizzare il ROI del tuo advertising."
+        "I prodotti Benail sono certificati e provengono da fornitori verificati. "
+        "La qualità dei lavori eseguiti dipende dalla tecnica applicativa e dall'esperienza dell'onicotecnica. "
+        "I prezzi e la disponibilità sono soggetti a variazioni. Consulta la pagina del prodotto per le condizioni attuali."
     )
 
-    PPC_DISCLAIMER = (
-        "Google Ads è un canale a pagamento. I risultati dipendono da budget, targeting, "
-        "creatività e ottimizzazione continua. Nessun esperto può garantire conversioni specifiche."
+    ECOMMERCE_DISCLAIMER = (
+        "Benail offre una selezione di prodotti professionali certificati per onicotecniche e nail center. "
+        "La consegna in 24h è per ordini effettuati entro le 12:00. Disponibilità soggetta a variazioni di stock."
     )
 
     # ========================
@@ -295,58 +289,96 @@ class SEOConfig:
     PUBLISH_DAY_OF_WEEK = int(_optional("PUBLISH_DAY", "2"))
     PUBLISH_HOUR_UTC = int(_optional("PUBLISH_HOUR", "9"))
 
-    # =========================
-    # IMPOSTAZIONI WORDPRESS
-    # =========================
-    PERMALINK_STRUCTURE = _optional("PERMALINK_STRUCTURE", "/google-ads/%postname%/")
-    DEFAULT_POST_AUTHOR = _optional("DEFAULT_AUTHOR", "Stefano")
+    # ====================
+    # PRESTASHOP SEO SETTINGS
+    # ====================
+    PERMALINK_STRUCTURE = _optional("PERMALINK_STRUCTURE", "/{id}-{name}")
+    DEFAULT_POST_AUTHOR = _optional("DEFAULT_AUTHOR", "Benail Admin")
     ALLOW_COMMENTS = bool(_optional("ALLOW_COMMENTS", "true").lower() == "true")
 
-    DEFAULT_FEATURED_IMAGE = _optional(
-        "DEFAULT_FEATURED_IMAGE",
-        f"{WEBSITE_URL}/images/google-ads-featured.jpg"
-    )
-
     # ==========================================
-    # STRATEGIA CONTENUTO: Google Ads Focus
+    # CONTENT STRATEGY: Benail Focus
     # ==========================================
     CONTENT_THEMES = [
-        "Strategie Google Ads avanzate",
-        "Ottimizzazione ROI campagne PPC",
-        "Gestione budget pubblicitario Google Ads",
-        "Quality Score e performance ads",
-        "Remarketing e retargeting strategico",
-        "Google Shopping per e-commerce",
-        "Lead generation con Google Ads",
-        "Conversione visitors in clienti",
-        "Targeting geografico e demografico",
-        "Automazione campagne Google Ads",
+        "Guida ai prodotti professionali per nail art",
+        "Tutorial ricostruzione unghie",
+        "Differenze tra gel e acrygel",
+        "Prodotti HEMA Free: cosa significa",
+        "Come scegliere la lampada UV/LED",
+        "Consigli di applicazione smalto semipermanente",
+        "Tendenze nail art professionale",
+        "Cura e manutenzione attrezzature",
+        "Prodotti per nail center professionali",
+        "Innovazioni nell'industria onicotecnica",
     ]
 
     FAQ_TOPICS = [
-        "Come iniziare con Google Ads?",
-        "Qual è il budget minimo per Google Ads?",
-        "Come calcolare il ROI delle campagne PPC?",
-        "Cosa è il Quality Score su Google Ads?",
-        "Differenza tra Search Ads e Display Ads?",
-        "Come fare remarketing su Google?",
-        "Come ottimizzare le parole chiave su Google Ads?",
-        "Quanto costa gestire una campagna Google Ads?",
+        "Cosa significa HEMA Free?",
+        "Differenza tra gel trifasico e monofasico?",
+        "Come applicare bene lo smalto semipermanente?",
+        "Qual è la migliore lampada UV o LED?",
+        "Come fare ricostruzioni in acrygel?",
+        "Quali sono i migliori marchi professionali?",
+        "Quanto dura lo smalto semipermanente?",
+        "Come rimuovere lo smalto semipermanente?",
+        "Offrite prezzi all'ingrosso per rivenditori?",
+        "Quali sono le condizioni di spedizione?",
     ]
 
-    # ====================
-    # PRESTASHOP INTEGRAZIONE
-    # ====================
-    # PrestaShop settings (optional). Keep keys out of source control; use env or GitHub Secrets.
-    PRESTA_URL = _optional("PRESTA_URL", "").rstrip("/")
-    PRESTA_WS_KEY = _optional("PRESTA_WS_KEY", "")
-    PRESTA_DEFAULT_LANG_ID = int(_optional("PRESTA_LANG_ID", "1"))
-    PRESTA_SHOP_ID = int(_optional("PRESTA_SHOP_ID", "1"))
-    PRESTA_CURRENCY = _optional("PRESTA_CURRENCY", "EUR")
-    PRESTA_DRY_RUN = bool(_optional("PRESTA_DRY_RUN", "true").lower() == "true")
+    # ========================
+    # SEO AUDIT IMPLEMENTATIONS
+    # ========================
+    
+    # CRITICAL: H1 Homepage Tag
+    HOMEPAGE_H1 = "Prodotti Professionali per Onicotecniche – Smalti, Gel, Acrygel e Attrezzature con consegna in 24h"
+    
+    # CRITICAL: Optimized Meta Title (50-60 chars)
+    HOMEPAGE_META_TITLE = "Prodotti Onicotecniche Professionali | Consegna 24h – Benail"
+    
+    # CRITICAL: Optimized Meta Description (150-160 chars)
+    HOMEPAGE_META_DESCRIPTION = (
+        "Prodotti professionali onicotecniche: smalti semipermanenti, acrygel, gel, lampade e attrezzature "
+        "HEMA Free. Spedizione 24h. Prezzi rivenditori. Scopri il catalogo Benail."
+    )
+    
+    # CRITICAL: Meta Viewport (fix for accessibility & mobile SEO)
+    VIEWPORT_TAG = "width=device-width, initial-scale=1"
+    
+    # IMPORTANT: Homepage SEO Text (200-300 words)
+    HOMEPAGE_SEO_TEXT = (
+        "Benail è l'e-commerce specializzato in prodotti professionali per onicotecniche e nail center in tutta Italia. "
+        "Offriamo una selezione curata di smalti semipermanenti, gel trifasico, acrygel, lampade UV/LED professionali, "
+        "e attrezzature per nail art e ricostruzioni unghie. Tutti i nostri prodotti sono certificati, HEMA Free, "
+        "e provengono da marchi internazionali riconosciuti nel settore. "
+        "Che tu sia un'onicotecnica indipendente, un nail center professionista, o una scuola di formazione, "
+        "Benail ha tutto ciò che ti serve per offrire servizi di qualità ai tuoi clienti. "
+        "Con consegna garantita in 24h su tutta Italia e prezzi speciali per rivenditori e ordini in volume, "
+        "Benail è il partner ideale per i professionisti del settore nail. "
+        "Scopri il nostro catalogo completo di categorie: semipermanenti, gel monofasico e trifasico, "
+        "acrygel, costruttori, apparecchiature, e tutta l'attrezzatura necessaria per completare il tuo kit professionale. "
+        "Affidati a Benail per la qualità, la rapidità e il supporto professionale che meriti."
+    )
 
-    # Convenience flag
-    PRESTA_ENABLED = bool(PRESTA_URL and PRESTA_WS_KEY)
+    # IMPORTANT: Schema Markup Configuration
+    ENABLE_SCHEMA_MARKUP = True
+    SCHEMA_PRODUCT_ENABLED = True
+    SCHEMA_BREADCRUMB_ENABLED = True
+    SCHEMA_ORGANIZATION_ENABLED = True
+    SCHEMA_FAQ_ENABLED = True
+    
+    # Organization Schema
+    ORGANIZATION_SCHEMA = {
+        "name": "Benail",
+        "url": WEBSITE_URL,
+        "logo": f"{WEBSITE_URL}/logo.png",
+        "description": "E-commerce prodotti professionali onicotecniche",
+        "telephone": _optional("PHONE_NUMBER", ""),
+        "address": _optional("BUSINESS_ADDRESS", "Italia"),
+        "sameAs": [
+            _optional("FACEBOOK_URL", ""),
+            _optional("INSTAGRAM_URL", ""),
+        ]
+    }
 
     # ====================
     # VALIDAZIONE FINALI
@@ -356,9 +388,7 @@ class SEOConfig:
         """Validate configuration at startup."""
         required = [
             cls.GROQ_API_KEY,
-            cls.WP_URL,
-            cls.WP_USERNAME,
-            cls.WP_APP_PASSWORD,
+            cls.PRESTA_WS_KEY,
         ]
         for val in required:
             if not val:
@@ -370,11 +400,6 @@ class SEOConfig:
 config = SEOConfig()
 
 
-# =====================================================
-# MODERATION GUIDELINES (omitted here for brevity)
-# =====================================================
-
-
 def get_config() -> SEOConfig:
     if not SEOConfig.validate():
         raise EnvironmentError("Invalid configuration. Check environment variables.")
@@ -383,11 +408,12 @@ def get_config() -> SEOConfig:
 
 def print_config_summary():
     print("=" * 70)
-    print("CONFIGURATION - SEO Pipeline Stefano Da Google")
-    print("FOCUS: Specialista Google Ads / PPC Advertising Italia")
+    print("CONFIGURATION - SEO Pipeline Benail.it")
+    print("FOCUS: Prodotti Professionali Onicotecniche / E-commerce Nail")
     print("=" * 70)
     print(f"Brand: {config.BRAND_NAME}")
     print(f"Site: {config.WEBSITE_URL}")
     print(f"Language: {config.LANGUAGE_CODE}")
     print(f"Presta enabled: {config.PRESTA_ENABLED}")
+    print(f"Schema markup enabled: {config.ENABLE_SCHEMA_MARKUP}")
     print("=" * 70)
