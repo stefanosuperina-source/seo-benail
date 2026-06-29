@@ -1,0 +1,53 @@
+"""
+Central configuration for the SEO agent pipeline.
+
+All secrets are read from environment variables. Locally, these come from
+a .env file (never committed). On GitHub Actions, these come from
+repository Secrets, injected automatically as env vars by the workflow.
+"""
+
+import os
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # no-op on GitHub Actions; loads .env locally if present
+except ImportError:
+    pass
+
+
+def _require(name: str) -> str:
+    value = os.environ.get(name)
+    if not value:
+        raise EnvironmentError(
+            f"Missing required environment variable: {name}\n"
+            f"Set it in your local .env file, or in GitHub repo Settings > "
+            f"Secrets and variables > Actions."
+        )
+    return value
+
+
+class Config:
+    # --- Groq / LLM ---
+    GROQ_API_KEY = _require("GROQ_API_KEY")
+    GROQ_MODEL = os.environ.get("GROQ_MODEL", "groq/llama-3.3-70b-versatile")
+
+    # --- WordPress / WooCommerce ---
+    WP_URL = _require("WP_URL").rstrip("/")           # e.g. https://yourstore.com
+    WP_USERNAME = _require("WP_USERNAME")               # WP admin username
+    WP_APP_PASSWORD = _require("WP_APP_PASSWORD")        # WP Application Password (NOT login password)
+
+    # --- Publishing behavior ---
+    # "draft" (recommended until you trust the pipeline) or "publish"
+    PUBLISH_STATUS = os.environ.get("PUBLISH_STATUS", "draft")
+
+    # --- Niche / store context, used to steer the Researcher agent ---
+    STORE_NICHE = os.environ.get(
+        "STORE_NICHE",
+        "wellness and natural supplements e-commerce store"
+    )
+
+    # --- Output ---
+    OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "output")
+
+
+config = Config

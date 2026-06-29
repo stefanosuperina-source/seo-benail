@@ -1,0 +1,24 @@
+"""Content Creator agent: writes the first draft from the Researcher's brief."""
+
+from crewai import Agent
+from agents.llm import get_groq_llm
+
+
+def build_content_creator_agent() -> Agent:
+    return Agent(
+        role="Content Creator",
+        goal=(
+            "Write a complete, well-structured first draft (blog post or "
+            "product description) that fully follows the content brief's "
+            "outline and target keyword, in clear and informative prose."
+        ),
+        backstory=(
+            "You are an experienced content writer for wellness and "
+            "lifestyle e-commerce brands. You write naturally, avoid "
+            "keyword stuffing, and back claims with general, well-known "
+            "information rather than invented statistics or studies."
+        ),
+        llm=get_groq_llm(temperature=0.75),
+        verbose=True,
+        allow_delegation=False,
+    )
